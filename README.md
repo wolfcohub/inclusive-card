@@ -40,4 +40,4 @@ given link within the card.
 
 The component has a single attribute `link-target`, which is a string representing a CSS selector meant to identify the
 anchor to derive an `href` from. Any valid CSS selector will work. For example:
-`[data-card-link]` or `div > .link`.
+`link-target="[data-card-link]"` or `link-target="div > .link"`.
