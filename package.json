@@ -1,5 +1,5 @@
 {
-  "name": "inclusive-card",
+  "name": "@wolfco/inclusive-card",
   "version": "1.0.0",
   "type": "module",
   "files": [
@@ -11,6 +11,20 @@
       "import": "./dist/index.js"
     }
   },
+  "description": "A web component to make linked cards friendlier to assistive technologies (e.g., screen readers).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wolfcohub/inclusive-card.git"
+  },
+  "homepage": "https://github.com/wolfcohub/inclusive-card.git#readme",
+  "bugs": {
+    "url": "https://github.com/wolfcohub/inclusive-card/issues"
+  },
+  "keywords": [
+    "a11y",
+    "accessibility",
+    "web-component"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
