@@ -21,7 +21,7 @@ export default class InclusiveCard extends HTMLElement {
 
   createChildren() {
     this._link = this._linkSelector
-      ? document.querySelector(this._linkSelector)
+      ? this.querySelector(this._linkSelector)
       : null;
 
     return this;
