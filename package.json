@@ -11,6 +11,7 @@
       "import": "./dist/index.js"
     }
   },
+  "private": "false",
   "description": "A web component to make linked cards friendlier to assistive technologies (e.g., screen readers).",
   "repository": {
     "type": "git",
