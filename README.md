@@ -26,8 +26,8 @@ given link within the card.
 `import 'inclusive-card';`
 
 ```
-<inclusive-card>
-  <article link-target="[data-card-link]">
+<inclusive-card link-target="[data-card-link]">
+  <article>
     <img src="foo" alt="foo" />
     <h1>Article Title</h1>
     <p>Article summary...</p>
@@ -51,11 +51,13 @@ should take a user somewhere else when clinked on directly.
 For example:
 
 ```
-<inclusive-card>
-  <article link-target="[data-card-link]">
+<inclusive-card link-target="[data-card-link]">
+  <article >
     <img src="foo" alt="foo" />
     <h1>Article Title</h1>
-    <p>Lorem ipsum dolor <a href="https://some-link.com">sit amet</a>, consectetur <a href="https://some-other-link.com">adipisicing elit</a>. A aliquam aspernatur culpa delectus eaque eum ipsum.</p>
+    <p>Lorem ipsum dolor <a href="https://some-link.com">sit amet</a>,
+    consectetur <a href="https://some-other-link.com">adipisicing elit</a>.
+    A aliquam aspernatur culpa delectus eaque eum ipsum.</p>
     <a data-card-link href="/foo">Learn more about foo</a>
   </article>
 </inclusive-card>
@@ -65,11 +67,13 @@ In that case, you can pass an `exclusions` attribute to the card, which accepts 
 selector. Items matching that string will simply behave like regular links.
 
 ```
-<inclusive-card>
-  <article exclusions="[data-exclusion]" link-target="[data-card-link]">
+<inclusive-card exclusions="[data-exclusion]" link-target="[data-card-link]">
+  <article>
     <img src="foo" alt="foo" />
     <h1>Article Title</h1>
-    <p>Lorem ipsum dolor <a data-exclusion href="https://some-link.com">sit amet</a>, consectetur <a data-exclusion href="https://some-other-link.com">adipisicing elit</a>. A aliquam aspernatur culpa delectus eaque eum ipsum.</p>
+    <p>Lorem ipsum dolor <a data-exclusion href="https://some-link.com">sit amet</a>,
+    consectetur <a data-exclusion href="https://some-other-link.com">adipisicing elit</a>.
+    A aliquam aspernatur culpa delectus eaque eum ipsum.</p>
     <a data-card-link href="/foo">Learn more about foo</a>
   </article>
 </inclusive-card>
