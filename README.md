@@ -38,6 +38,39 @@ given link within the card.
 
 ### Attributes
 
-The component has a single attribute `link-target`, which is a string representing a CSS selector meant to identify the
+The component's primary attribute is `link-target`, which is a string representing a CSS selector meant to identify the
 anchor to derive an `href` from. Any valid CSS selector will work. For example:
 `link-target="[data-card-link]"` or `link-target="div > .link"`.
+
+#### Exclusions
+
+There are cases where you might have a card with a primary CTA that also has secondary CTAs, or links within article
+summary text. In those cases you'd need to distinguish between a link meant to apply to the entire card and links that
+should take a user somewhere else when clinked on directly.
+
+For example:
+
+```
+<inclusive-card>
+  <article link-target="[data-card-link]">
+    <img src="foo" alt="foo" />
+    <h1>Article Title</h1>
+    <p>Lorem ipsum dolor <a href="https://some-link.com">sit amet</a>, consectetur <a href="https://some-other-link.com">adipisicing elit</a>. A aliquam aspernatur culpa delectus eaque eum ipsum.</p>
+    <a data-card-link href="/foo">Learn more about foo</a>
+  </article>
+</inclusive-card>
+```
+
+In that case, you can pass an `exclusions` attribute to the card, which accepts a string meant to be used as a CSS
+selector. Items matching that string will simply behave like regular links.
+
+```
+<inclusive-card>
+  <article exclusions="[data-exclusion]" link-target="[data-card-link]">
+    <img src="foo" alt="foo" />
+    <h1>Article Title</h1>
+    <p>Lorem ipsum dolor <a data-exclusion href="https://some-link.com">sit amet</a>, consectetur <a data-exclusion href="https://some-other-link.com">adipisicing elit</a>. A aliquam aspernatur culpa delectus eaque eum ipsum.</p>
+    <a data-card-link href="/foo">Learn more about foo</a>
+  </article>
+</inclusive-card>
+```
