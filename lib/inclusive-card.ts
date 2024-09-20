@@ -4,6 +4,8 @@
  */
 export default class InclusiveCard extends HTMLElement {
   private _clickStart: Date | undefined;
+  private _exclusionSelector: string | null;
+  private _exclusions: NodeListOf<HTMLAnchorElement> | null;
   private _linkSelector: string | null;
   private _link: HTMLAnchorElement | null;
 
@@ -11,6 +13,8 @@ export default class InclusiveCard extends HTMLElement {
     super();
 
     this._clickStart = undefined;
+    this._exclusionSelector = this.getAttribute('exclusions');
+    this._exclusions = null;
     this._link = null;
     this._linkSelector = this.getAttribute('link-target');
   }
@@ -24,6 +28,10 @@ export default class InclusiveCard extends HTMLElement {
       ? this.querySelector(this._linkSelector)
       : null;
 
+    this._exclusions = this._exclusionSelector
+      ? this.querySelectorAll(this._exclusionSelector)
+      : null;
+
     return this;
   }
 
@@ -34,8 +42,16 @@ export default class InclusiveCard extends HTMLElement {
       this.handleMouseUp(event);
     });
 
+    this._exclusions!.forEach(exclusion => {
+      exclusion.addEventListener('click', this.handleExclusionClick);
+    });
+
     return this;
   }
+
+  handleExclusionClick = (event: MouseEvent): void => {
+    event.stopPropagation();
+  };
 
   handleMouseDown = (): void => {
     this._clickStart = new Date();
